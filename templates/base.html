@@ -8,7 +8,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Samson Business Tracking -  Track Your Products</title>
+  <title>{{title}}</title>
 
   <!-- Bootstrap core CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
@@ -23,7 +23,7 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
-      <a class="navbar-brand" href="#">Samson Tracking</a>
+      <a class="navbar-brand" href="{{url_for('index')}}">Ultimate Tracking</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -65,12 +65,15 @@
   {% endblock content %}
 
   <div class="row">
+      <div class="h5 justify-content-center">
+          Explore Products
+      </div>
     <div class="col-md-4 mb-5">
       <div class="card h-100">
         <img class="card-img-top" src="" alt="">
         <div class="card-body">
-          <h4 class="card-title">Card title</h4>
-          <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque sequi doloribus.</p>
+          <h4 class="card-title">Kenny's Hoodie</h4>
+          <p class="card-text">Pull Out to the spot in your customized Hoodie! Stay Jiggy! Use your face mask and help save lives.</p>
         </div>
         <div class="card-footer">
           <a href="#" class="btn btn-primary">Find Out More!</a>
@@ -81,8 +84,8 @@
       <div class="card h-100">
         <img class="card-img-top" src="" alt="">
         <div class="card-body">
-          <h4 class="card-title">Card title</h4>
-          <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque sequi doloribus totam ut praesentium aut.</p>
+          <h4 class="card-title">Skibby Jackets</h4>
+          <p class="card-text">Customized jackets for parties! Print your designs on your jackets with your names written on them.</p>
         </div>
         <div class="card-footer">
           <a href="#" class="btn btn-primary">Find Out More!</a>
@@ -93,8 +96,8 @@
       <div class="card h-100">
         <img class="card-img-top" src="" alt="">
         <div class="card-body">
-          <h4 class="card-title">Card title</h4>
-          <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
+          <h4 class="card-title">Nose Mask</h4>
+          <p class="card-text">Customized nose masks with different designs varing from nature, adventure, movies and so on. Use your masks and help save lives.</p>
         </div>
         <div class="card-footer">
           <a href="#" class="btn btn-primary">Find Out More!</a>

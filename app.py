@@ -20,26 +20,29 @@ def index():
     
     # GET Request
     if request.method == 'GET':
-        return render_template('index.html', form=form)
+        title = 'Samson Business Tracking -  Track Your Products'
+        return render_template('index.html', form=form, title=title)
 
     if request.method == 'POST':
         if form.validate_on_submit():
+            title = 'Tracking Details'
             trackingnumber = form.trackingNumber.data
             # Read Product from MongoDB
             packageitem = packagecontroller.read(trackingnumber)
-            return render_template('tracking.html', form=form, packageitem=packageitem)
+            return render_template('tracking.html', form=form, packageitem=packageitem, title=title)
 
 
 @app.route('/post-package', methods=['GET', 'POST'])
 def postpackage():
     form = packageForm()
     if request.method == 'GET':
-        
-        return render_template('post-package.html', form=form)
+        title = 'Post A Package'
+        return render_template('post-package.html', form=form, title=title)
 
     if request.method == 'POST':
         trackingnum = None
         if form.validate_on_submit():
+            title = 'Post A Package'
             # Getting user inputs 
             packagename = form.packagename.data
             location = form.location.data
@@ -55,7 +58,7 @@ def postpackage():
             singlePackage = package(None, packagename, location, status, quantity, trackingnum, ownername, owneremail)
             # Post Package Details to MongoDB
             packagecontroller.create(singlePackage)
-            return render_template('post-package.html', form=form, trackingnum=trackingnum)
+            return render_template('post-package.html', form=form, trackingnum=trackingnum, title=title)
 
 if __name__ == "__main__":
     app.run(debug=True)
