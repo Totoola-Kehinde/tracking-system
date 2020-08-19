@@ -5,6 +5,7 @@ from repository.packages import packages
 from models.package import package
 from views.packageform import packageForm
 from views.trackingform import trackingForm
+import json
 import settings
 
 
@@ -16,7 +17,7 @@ packagecontroller = packages()
 @app.route('/', methods=['GET', 'POST'])
 def index():
     form = trackingForm()
-
+    
     # GET Request
     if request.method == 'GET':
         return render_template('index.html', form=form)
@@ -25,7 +26,7 @@ def index():
         if form.validate_on_submit():
             trackingnumber = form.trackingNumber.data
             packageitem = packagecontroller.read(trackingnumber)
-            return render_template('index.html', form=form, item=packageitem)
+            return render_template('tracking.html', form=form, packageitem=packageitem)
 
 
 @app.route('/post-package', methods=['GET', 'POST'])
