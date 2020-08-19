@@ -17,6 +17,8 @@
         <strong>Package Tracking Number:</strong> {{trackingnum}}
     </div>
     {% endif %}
+    <!-- Displays Tracking Number -->
+
     <form action="" method="POST">
         <legend>Post A Package And Get Tracking Number</legend>
         {{form.hidden_tag()}}
@@ -40,10 +42,10 @@
           <label for="">Package Status</label>
           {{form.status(class='form-control lg-6', placeholder='Package Status')}} 
           <br>
-          
+
         <div class="form group">
           {{form.submit(class='btn btn-primary')}}
-          </div>
+          </div> <!-- Form Submit Button -->
         </div>
         
     </form>

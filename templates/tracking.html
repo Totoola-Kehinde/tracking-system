@@ -101,21 +101,31 @@
     {% for package in packageitem %}
     <div class="row">
       <div class="col-lg-6">
+        <div class="h5">
+          Delivery Progress:
+        </div>
         <div class="progress">
           <div class="progress-bar progress-bar-striped" role="progressbar" id="progress" style="width: {{package.progress}}%;" aria-valuemin="0" aria-valuemax="100">{{package.location}}</div>
         </div> <!-- Progress And Location -->
-      </div>
+      </div> <!-- End Of first Column in this row -->
+
+      <div class="col-lg-6">
+        <div class="h5">
+          Package Details:
+        </div>
       <div class="card">
         <div class="card-body">
           <h4 class="card-title">Package: {{package.package}}</h4>
-          <p class="card-text">Tracking NUmber: {{package.trackingnumber}}</p>
+          <p class="card-text">Tracking Number: {{package.trackingnumber}}</p>
         </div>
         <ul class="list-group list-group-flush">
           <li class="list-group-item">Quantity: {{package.quantity}}</li>
           <li class="list-group-item">Status: {{package.status}}</li>
           <li class="list-group-item">Current Location: {{package.location}}</li>
         </ul>
+      </div> <!-- Card That Displays Package Details -->
       </div>
+
     </div> <br>
     {% endfor %}
     {% endif %}
