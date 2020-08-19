@@ -50,12 +50,13 @@ def postpackage():
             quantity = form.quantity.data
             ownername = form.packageownername.data
             owneremail = form.packageowneremail.data
+            address = form.address.data
 
             # Generate Tracking number for product!
             trackingnum = GenerateTrackingNumber.gettracknumber(GenerateTrackingNumber)
 
             # Make Package from package Model
-            singlePackage = package(None, packagename, location, status, quantity, trackingnum, ownername, owneremail)
+            singlePackage = package(None, packagename, location, status, quantity, trackingnum, ownername, owneremail, address)
             # Post Package Details to MongoDB
             packagecontroller.create(singlePackage)
             return render_template('post-package.html', form=form, trackingnum=trackingnum, title=title)

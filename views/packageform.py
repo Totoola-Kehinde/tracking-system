@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField, IntegerField
+from wtforms import StringField, SubmitField, IntegerField, TextAreaField
 from wtforms.validators import data_required
 
 class packageForm(FlaskForm):
@@ -9,4 +9,5 @@ class packageForm(FlaskForm):
     quantity = IntegerField("Package Quantity", [data_required()])
     location = StringField("Current Location", [data_required()])
     status = StringField("Package Status", [data_required()])
+    address = TextAreaField("Address", [data_required()])
     submit = SubmitField("Submit!")

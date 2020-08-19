@@ -1,6 +1,8 @@
 {% extends 'base.html' %}
 {% block content %}
-    {% if trackingnum != None %}
+
+    <div class="container col-lg-6">
+      {% if trackingnum != None %}
     <div class="alert alert-primary alert-dismissible fade show" role="alert">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
@@ -10,29 +12,31 @@
     </div>
     {% endif %}
     <!-- Displays Tracking Number -->
-
     <form action="" method="POST">
         <legend>Post A Package And Get Tracking Number</legend>
         {{form.hidden_tag()}}
-        <div class="form-group col-lg-6">
+        <div class="form-group">
     
           <label for="">Package Name</label>
-          {{form.packagename(class='form-control lg-6', placeholder='Package Name')}}
+          {{form.packagename(class='form-control', placeholder='Package Name')}}
 
           <label for="">Package Owner Name</label>
-          {{form.packageownername(class='form-control lg-6', placeholder='Package Owner Name')}}
+          {{form.packageownername(class='form-control', placeholder='Package Owner Name')}}
 
           <label for="">Package Owner Email</label>
-          {{form.packageowernemail(class='form-control lg-6', placeholder='Package Owner Email')}}
+          {{form.packageowneremail(class='form-control', placeholder='Package Owner Email', type='email')}}
 
           <label for="">Package Quantity</label>
-          {{form.quantity(class='form-control lg-6', placeholder='Package Quantity')}}
+          {{form.quantity(class='form-control', placeholder='Package Quantity')}}
 
           <label for="">Package Location</label>
-          {{form.location(class='form-control lg-6', placeholder='Package Location')}}
+          {{form.location(class='form-control', placeholder='Package Location')}}
+
+          <label for="">Address</label>
+          {{form.address(class='form-control', placeholder='Address', row='5')}}
 
           <label for="">Package Status</label>
-          {{form.status(class='form-control lg-6', placeholder='Package Status')}} 
+          {{form.status(class='form-control', placeholder='Package Status')}} 
           <br>
 
         <div class="form group">
@@ -41,4 +45,5 @@
         </div>
         
     </form>
+    </div>
 {% endblock content %}
