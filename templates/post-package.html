@@ -21,14 +21,26 @@
         <legend>Post A Package And Get Tracking Number</legend>
         {{form.hidden_tag()}}
         <div class="form-group col-lg-6">
+    
           <label for="">Package Name</label>
           {{form.packagename(class='form-control lg-6', placeholder='Package Name')}}
+
+          <label for="">Package Owner Name</label>
+          {{form.packageownername(class='form-control lg-6', placeholder='Package Owner Name')}}
+
+          <label for="">Package Owner Email</label>
+          {{form.packageowernemail(class='form-control lg-6', placeholder='Package Owner Email')}}
+
           <label for="">Package Quantity</label>
           {{form.quantity(class='form-control lg-6', placeholder='Package Quantity')}}
+
           <label for="">Package Location</label>
           {{form.location(class='form-control lg-6', placeholder='Package Location')}}
+
           <label for="">Package Status</label>
-          {{form.status(class='form-control lg-6', placeholder='Package Status')}} <br>
+          {{form.status(class='form-control lg-6', placeholder='Package Status')}} 
+          <br>
+          
         <div class="form group">
           {{form.submit(class='btn btn-primary')}}
           </div>

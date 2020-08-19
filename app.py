@@ -25,6 +25,7 @@ def index():
     if request.method == 'POST':
         if form.validate_on_submit():
             trackingnumber = form.trackingNumber.data
+            # Read Product from MongoDB
             packageitem = packagecontroller.read(trackingnumber)
             return render_template('tracking.html', form=form, packageitem=packageitem)
 
@@ -39,13 +40,20 @@ def postpackage():
     if request.method == 'POST':
         trackingnum = None
         if form.validate_on_submit():
+            # Getting user inputs 
             packagename = form.packagename.data
             location = form.location.data
             status = form.status.data
             quantity = form.quantity.data
+            ownername = form.packageownername.data
+            owneremail = form.packageowneremail.data
+
+            # Generate Tracking number for product!
             trackingnum = GenerateTrackingNumber.gettracknumber(GenerateTrackingNumber)
 
-            singlePackage = package(None, packagename, location, status, quantity, trackingnum)
+            # Make Package from package Model
+            singlePackage = package(None, packagename, location, status, quantity, trackingnum, ownername, owneremail)
+            # Post Package Details to MongoDB
             packagecontroller.create(singlePackage)
             return render_template('post-package.html', form=form, trackingnum=trackingnum)
 
