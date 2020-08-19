@@ -46,6 +46,16 @@
         <div class="progress">
           <div class="progress-bar progress-bar-striped" role="progressbar" id="progress" style="width: {{package.progress}}%;" aria-valuemin="0" aria-valuemax="100">{{package.location}}</div>
         </div> <!-- Progress And Location -->
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <strong>Quick Notice:</strong> Your Package has been shipped from the deport and is now on the move! Please watch progress movement regularly as it moves!
+        </div> <!-- Breif Package Movement Information -->
+        
+        <script>
+          $(".alert").alert();
+        </script>
       </div> <!-- End Of first Column in this row -->
 
       <div class="col-lg-6">
