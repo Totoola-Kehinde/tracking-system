@@ -36,16 +36,26 @@
     </div>
     <!-- /.row -->
 
+    <center>
+    <div class="col-lg-6">
+      <img src="{{url_for('static', filename='img/undraw_deliveries_131a.svg')}}" class="img-fluid" alt="">
+    </div>
+    </center>
+
+    <hr>
+
     {% if packageitem != None %}
     {% for package in packageitem %}
     <div class="row">
       <div class="col-lg-6">
+        <hr>
         <div class="h5">
           Delivery Progress:
         </div>
         <div class="progress">
           <div class="progress-bar progress-bar-striped" role="progressbar" id="progress" style="width: {{package.progress}}%;" aria-valuemin="0" aria-valuemax="100">{{package.location}}</div>
         </div> <!-- Progress And Location -->
+        <hr>
         <br>
 
         <div class="alert alert-warning alert-dismissible fade show" role="alert">
@@ -58,6 +68,20 @@
         <script>
           $(".alert").alert();
         </script>
+
+      <div class="h5">
+        Receiver Details:
+      </div>
+      <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Name: {{package.package.ownerdetails['name']}}</h4>
+        <h6 class="card-text">Email: {{package.package.ownerdetails['email']}}</h6>
+        <h6 class="card-text">Address: {{package.address}}</h6>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Description: {{package.description}}</li>
+      </ul>
+      </div> <!-- Shipping Details -->
       </div> <!-- End Of first Column in this row -->
 
       <div class="col-lg-6">
@@ -66,13 +90,16 @@
         </div>
       <div class="card">
         <div class="card-body">
-          <h4 class="card-title">Item: {{package.package}}</h4>
-          <p class="card-text">Tracking Number: {{package.trackingnumber}}</p>
+          <h4 class="card-title">Item: {{package.package['packagename']}}</h4>
+          <p class="card-text">Tracking No.: {{package.trackingnumber}}</p>
         </div>
         <ul class="list-group list-group-flush">
           <li class="list-group-item">Quantity: {{package.quantity}}</li>
           <li class="list-group-item">Status: {{package.status}}</li>
           <li class="list-group-item">Current Location: {{package.location}}</li>
+          <li class="list-group-item">
+            <img src="{{url_for('static', filename='img/QR.png')}}" class="img-fluid" alt="" width="70%" height="10%">
+          </li>
         </ul>
       </div> <!-- Card That Displays Package Details -->
       </div>

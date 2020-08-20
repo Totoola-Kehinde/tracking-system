@@ -7,25 +7,27 @@ import datetime
 class package(Model):
     """ Collection Of the Packages """
 
-    def __init__(self, package_id, package, location, status, quantity, trackingnumber, ownername, owneremail, address):
+    def __init__(self, package_id, package, location, status, quantity, trackingnumber, ownername, owneremail, address, description):
         if package_id == None:
             self._id = ObjectId()
 
         # Attributting the owner of the package with the Packageowner Model
         # The argument variable for the package owner will also be provided in same form with other imformations
-        self.owner = packageowner(packageowner_id=None, ownername=ownername, email=owneremail)
+        self.owner = packageowner(None, ownername=ownername, email=owneremail)
+        self.owner = self.owner.get_as_dict()
 
         # Package Identification (with owner_id)
         self.package = {
             'packagename': package,
             'ownerdetails': {
-                'owner_id': self.owner._id,
-                'name': self.owner.ownername,
-                'email': self.owner.email
+                'owner_id': self.owner['_id'],
+                'name': self.owner['ownername'],
+                'email': self.owner['email']
             }
         }
         self.location = location
         self.address = address
+        self.description = description
         self.status = status
         self.quantity = quantity
         self.progress = 20
