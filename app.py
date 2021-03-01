@@ -20,7 +20,7 @@ def index():
     
     # GET Request
     if request.method == 'GET':
-        title = 'Samson Business Tracking -  Track Your Products'
+        title = 'Princess Crews Liners Business Tracking -  Track Your Packages'
         return render_template('index.html', form=form, title=title)
 
     if request.method == 'POST':
