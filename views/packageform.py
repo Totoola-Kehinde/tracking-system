@@ -9,6 +9,7 @@ class packageForm(FlaskForm):
     quantity = IntegerField("Package Quantity", [data_required()])
     location = StringField("Current Location", [data_required()])
     status = StringField("Package Status", [data_required()])
+    arrival = StringField("Package Arrival Date", [data_required()])
     address = TextAreaField("Address", [data_required()])
     description = TextAreaField("Description", [data_required()])
     submit = SubmitField("Submit!")
