@@ -7,7 +7,7 @@ import datetime
 class package(Model):
     """ Collection Of the Packages """
 
-    def __init__(self, package_id, package, location, status, quantity, trackingnumber, ownername, owneremail, address, description):
+    def __init__(self, package_id, package, location, status,arrival, quantity, trackingnumber, ownername, owneremail, address, description):
         if package_id == None:
             self._id = ObjectId()
 
@@ -29,6 +29,7 @@ class package(Model):
         self.address = address
         self.description = description
         self.status = status
+        self.arrival = arrival
         self.quantity = quantity
         self.progress = 20
         self.trackingnumber = trackingnumber
