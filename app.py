@@ -62,7 +62,3 @@ def postpackage():
             # Post Package Details to MongoDB
             packagecontroller.create(singlePackage)
             return render_template('post-package.html', form=form, trackingnum=trackingnum, title=title)
-
-if __name__ == "__main__":
-    app.run(debug=True)
-    app.run(port=os.environ.get("PORT", 8080))
